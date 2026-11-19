@@ -1,0 +1,29 @@
+{
+  "algo": "dqn",
+  "run": "eps_slow_high",
+  "hidden": 128,
+  "layers": 2,
+  "obs_dim": 16,
+  "n_actions": 10,
+  "output": "q_values",
+  "config": {
+    "lr": 0.0005,
+    "gamma": 0.97,
+    "batch_size": 128,
+    "buffer_size": 50000,
+    "eps_start": 1.0,
+    "eps_end": 0.15,
+    "eps_frac": 0.6,
+    "target_update": 500,
+    "tau": null,
+    "double_dqn": true,
+    "hidden": 128,
+    "layers": 2,
+    "frames_per_batch": 200,
+    "updates_per_batch": 10,
+    "total_frames": 300000,
+    "prioritized": false,
+    "init_random_frames": 2000,
+    "seed": 0
+  }
+}

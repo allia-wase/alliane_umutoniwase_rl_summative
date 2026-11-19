@@ -1,0 +1,39 @@
+{
+  "algo": "dqn",
+  "run": "lr_high",
+  "config": {
+    "lr": 0.002,
+    "gamma": 0.97,
+    "batch_size": 128,
+    "buffer_size": 50000,
+    "eps_start": 1.0,
+    "eps_end": 0.05,
+    "eps_frac": 0.3,
+    "target_update": 500,
+    "tau": null,
+    "double_dqn": true,
+    "hidden": 128,
+    "layers": 2,
+    "frames_per_batch": 200,
+    "updates_per_batch": 10,
+    "total_frames": 300000,
+    "prioritized": false,
+    "init_random_frames": 2000,
+    "seed": 0
+  },
+  "train_time_s": 1245.5,
+  "eval_mean_return": 10.4695,
+  "eval_std_return": 7.257488873570527,
+  "eval_mean_len": 10.865,
+  "success_rate": 0.825,
+  "matched_referral_rate": 0.63,
+  "breach_rate": 0.035,
+  "dropout_rate": 0.14,
+  "risk_handled_rate": 0.8666666666666667,
+  "outcomes": {
+    "human_handoff": 39,
+    "matched_referral": 126,
+    "dropout": 28,
+    "privacy_breach": 7
+  }
+}
