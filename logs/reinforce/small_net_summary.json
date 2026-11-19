@@ -1,0 +1,31 @@
+{
+  "algo": "reinforce",
+  "run": "small_net",
+  "config": {
+    "lr": 0.001,
+    "gamma": 0.97,
+    "frames_per_batch": 2000,
+    "total_frames": 300000,
+    "entropy_coef": 0.01,
+    "baseline": true,
+    "normalize_returns": true,
+    "hidden": 64,
+    "layers": 1,
+    "max_grad_norm": 1.0,
+    "seed": 0
+  },
+  "train_time_s": 1025.1,
+  "eval_mean_return": -1.8122500000000006,
+  "eval_std_return": 4.4615426073836835,
+  "eval_mean_len": 32.215,
+  "success_rate": 0.09,
+  "matched_referral_rate": 0.0,
+  "breach_rate": 0.0,
+  "dropout_rate": 0.31,
+  "risk_handled_rate": 0.4,
+  "outcomes": {
+    "timeout": 120,
+    "dropout": 62,
+    "human_handoff": 18
+  }
+}

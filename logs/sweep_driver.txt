@@ -1,0 +1,43 @@
+34 runs to do with 4 workers
+OK  reinforce/baseline: [reinforce:baseline] EVAL return=6.78 success=0.62 breach=0.00
+OK  reinforce/lr_low: [reinforce:lr_low] EVAL return=-3.31 success=0.09 breach=0.00
+OK  dqn/prioritized: [dqn:prioritized] EVAL return=13.37 success=0.98 breach=0.00
+OK  reinforce/lr_high: [reinforce:lr_high] EVAL return=1.21 success=0.23 breach=0.00
+OK  reinforce/gamma_high: [reinforce:gamma_high] EVAL return=-1.29 success=0.01 breach=0.00
+OK  reinforce/batch_small: [reinforce:batch_small] EVAL return=13.03 success=0.91 breach=0.00
+OK  reinforce/gamma_low: [reinforce:gamma_low] EVAL return=3.71 success=0.22 breach=0.00
+OK  reinforce/batch_large: [reinforce:batch_large] EVAL return=-1.35 success=0.22 breach=0.00
+OK  reinforce/no_entropy: [reinforce:no_entropy] EVAL return=5.14 success=0.23 breach=0.00
+OK  reinforce/entropy_high: [reinforce:entropy_high] EVAL return=9.66 success=0.78 breach=0.00
+OK  reinforce/no_baseline: [reinforce:no_baseline] EVAL return=2.14 success=0.22 breach=0.00
+OK  reinforce/small_net: [reinforce:small_net] EVAL return=-1.81 success=0.09 breach=0.00
+OK  a2c/baseline: [a2c:baseline] EVAL return=12.36 success=0.93 breach=0.00
+OK  a2c/lr_high: [a2c:lr_high] EVAL return=5.44 success=0.22 breach=0.00
+OK  a2c/lr_low: [a2c:lr_low] EVAL return=-0.39 success=0.22 breach=0.00
+OK  a2c/gamma_low: [a2c:gamma_low] EVAL return=3.74 success=0.22 breach=0.00
+FAIL a2c/rollout_short: [a2c:rollout_short] frames=108440 ep_return=5.861 episodes=11757 loss_policy=-0.066 loss_critic=0.169 entropy=0.601 wall_s=1144.900
+FAIL a2c/rollout_long: [a2c:rollout_long] frames=91000 ep_return=2.548 episodes=12125 loss_policy=0.747 loss_critic=0.629 entropy=1.987 wall_s=486.000
+FAIL a2c/lambda_td: [a2c:lambda_td] frames=86200 ep_return=4.300 episodes=23934 loss_policy=0.001 loss_critic=0.626 entropy=0.068 wall_s=1036.100
+FAIL a2c/lambda_mc: [a2c:lambda_mc] frames=66200 ep_return=10.004 episodes=8253 loss_policy=-3.502 loss_critic=1.340 entropy=1.695 wall_s=341.500
+16 runs to do with 3 workers
+OK  a2c/rollout_long: [a2c:rollout_long] EVAL return=13.08 success=0.98 breach=0.00
+OK  a2c/rollout_short: [a2c:rollout_short] EVAL return=12.98 success=0.95 breach=0.00
+OK  a2c/lambda_td: [a2c:lambda_td] EVAL return=2.99 success=0.20 breach=0.03
+FAIL a2c/no_entropy: KeyError: 'key "entropy" not found in TensorDict with keys [\'loss_critic\', \'loss_objective\']'
+OK  a2c/lambda_mc: [a2c:lambda_mc] EVAL return=13.85 success=0.99 breach=0.00
+OK  a2c/entropy_high: [a2c:entropy_high] EVAL return=12.82 success=0.95 breach=0.00
+OK  ppo/lr_low: [ppo:lr_low] EVAL return=13.19 success=0.99 breach=0.00
+OK  ppo/clip_tight: [ppo:clip_tight] EVAL return=13.51 success=0.99 breach=0.00
+OK  ppo/clip_wide: [ppo:clip_wide] EVAL return=5.72 success=0.22 breach=0.00
+OK  ppo/epochs_many: [ppo:epochs_many] EVAL return=13.74 success=0.99 breach=0.00
+OK  ppo/epochs_one: [ppo:epochs_one] EVAL return=12.22 success=0.86 breach=0.00
+OK  ppo/rollout_short: [ppo:rollout_short] EVAL return=13.39 success=0.97 breach=0.00
+OK  ppo/lambda_low: [ppo:lambda_low] EVAL return=12.72 success=0.95 breach=0.00
+OK  ppo/entropy_high: [ppo:entropy_high] EVAL return=13.05 success=0.97 breach=0.00
+OK  ppo/no_entropy: [ppo:no_entropy] EVAL return=13.53 success=0.99 breach=0.00
+OK  ppo/critic_low: [ppo:critic_low] EVAL return=13.32 success=0.97 breach=0.00
+done: 15 ok, 1 failed
+1 runs to do with 1 workers
+OK  a2c/no_entropy: [a2c:no_entropy] EVAL return=12.57 success=0.94 breach=0.00
+done: 1 ok, 0 failed
+4 runs to do with 3 workers

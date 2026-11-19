@@ -1,0 +1,31 @@
+{
+  "algo": "a2c",
+  "run": "baseline",
+  "config": {
+    "lr": 0.0007,
+    "gamma": 0.97,
+    "gae_lambda": 0.95,
+    "frames_per_batch": 200,
+    "total_frames": 300000,
+    "entropy_coef": 0.01,
+    "critic_coef": 0.5,
+    "hidden": 128,
+    "layers": 2,
+    "max_grad_norm": 0.5,
+    "normalize_advantage": false,
+    "seed": 0
+  },
+  "train_time_s": 1626.1,
+  "eval_mean_return": 12.360749999999998,
+  "eval_std_return": 4.495002440210683,
+  "eval_mean_len": 13.07,
+  "success_rate": 0.93,
+  "matched_referral_rate": 0.93,
+  "breach_rate": 0.0,
+  "dropout_rate": 0.07,
+  "risk_handled_rate": 0.0,
+  "outcomes": {
+    "matched_referral": 186,
+    "dropout": 14
+  }
+}

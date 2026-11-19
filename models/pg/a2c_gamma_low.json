@@ -1,0 +1,23 @@
+{
+  "algo": "a2c",
+  "run": "gamma_low",
+  "hidden": 128,
+  "layers": 2,
+  "obs_dim": 16,
+  "n_actions": 10,
+  "output": "logits",
+  "config": {
+    "lr": 0.0007,
+    "gamma": 0.9,
+    "gae_lambda": 0.95,
+    "frames_per_batch": 200,
+    "total_frames": 300000,
+    "entropy_coef": 0.01,
+    "critic_coef": 0.5,
+    "hidden": 128,
+    "layers": 2,
+    "max_grad_norm": 0.5,
+    "normalize_advantage": false,
+    "seed": 0
+  }
+}

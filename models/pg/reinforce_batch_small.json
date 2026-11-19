@@ -1,0 +1,22 @@
+{
+  "algo": "reinforce",
+  "run": "batch_small",
+  "hidden": 128,
+  "layers": 2,
+  "obs_dim": 16,
+  "n_actions": 10,
+  "output": "logits",
+  "config": {
+    "lr": 0.001,
+    "gamma": 0.97,
+    "frames_per_batch": 500,
+    "total_frames": 300000,
+    "entropy_coef": 0.01,
+    "baseline": true,
+    "normalize_returns": true,
+    "hidden": 128,
+    "layers": 2,
+    "max_grad_norm": 1.0,
+    "seed": 0
+  }
+}

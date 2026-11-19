@@ -1,0 +1,18 @@
+C:\Users\hb\alliane_umutoniwase_rl_summative\.venv\Lib\site-packages\torchrl\collectors\_single.py:255: FutureWarning: The env passed to Collector is missing transforms required by the policy (InitTracker). From torchrl v0.16 the collector will append them automatically. To enable that behavior now (and silence this warning), pass `auto_register_policy_transforms=True`. To opt out permanently, pass `auto_register_policy_transforms=False`.
+  return super().__call__(*args, **kwargs)
+[reinforce:no_baseline] frames=2000 ep_return=-0.743 episodes=369 loss_policy=-1.293 loss_critic=0.000 entropy=2.299 wall_s=8.600
+[reinforce:no_baseline] frames=22000 ep_return=-0.641 episodes=4280 loss_policy=-0.532 loss_critic=0.000 entropy=2.245 wall_s=77.900
+[reinforce:no_baseline] frames=42000 ep_return=-0.657 episodes=8831 loss_policy=0.467 loss_critic=0.000 entropy=2.112 wall_s=150.600
+[reinforce:no_baseline] frames=62000 ep_return=-0.505 episodes=12240 loss_policy=1.079 loss_critic=0.000 entropy=2.005 wall_s=216.900
+[reinforce:no_baseline] frames=82000 ep_return=1.612 episodes=14357 loss_policy=1.294 loss_critic=0.000 entropy=1.955 wall_s=277.000
+[reinforce:no_baseline] frames=102000 ep_return=0.776 episodes=16589 loss_policy=2.828 loss_critic=0.000 entropy=1.991 wall_s=337.500
+[reinforce:no_baseline] frames=122000 ep_return=1.783 episodes=18666 loss_policy=1.694 loss_critic=0.000 entropy=1.945 wall_s=398.200
+[reinforce:no_baseline] frames=142000 ep_return=3.632 episodes=20971 loss_policy=3.340 loss_critic=0.000 entropy=1.773 wall_s=459.000
+[reinforce:no_baseline] frames=162000 ep_return=3.628 episodes=23416 loss_policy=3.777 loss_critic=0.000 entropy=1.745 wall_s=519.900
+[reinforce:no_baseline] frames=182000 ep_return=3.557 episodes=25688 loss_policy=4.240 loss_critic=0.000 entropy=1.701 wall_s=580.900
+[reinforce:no_baseline] frames=202000 ep_return=3.491 episodes=27683 loss_policy=3.832 loss_critic=0.000 entropy=1.685 wall_s=641.200
+[reinforce:no_baseline] frames=222000 ep_return=4.401 episodes=29650 loss_policy=4.673 loss_critic=0.000 entropy=1.606 wall_s=702.400
+[reinforce:no_baseline] frames=242000 ep_return=5.938 episodes=31562 loss_policy=5.681 loss_critic=0.000 entropy=1.621 wall_s=764.300
+[reinforce:no_baseline] frames=262000 ep_return=5.982 episodes=33090 loss_policy=7.617 loss_critic=0.000 entropy=1.677 wall_s=824.500
+[reinforce:no_baseline] frames=282000 ep_return=11.154 episodes=34289 loss_policy=10.943 loss_critic=0.000 entropy=1.678 wall_s=907.600
+[reinforce:no_baseline] EVAL return=2.14 success=0.22 breach=0.00

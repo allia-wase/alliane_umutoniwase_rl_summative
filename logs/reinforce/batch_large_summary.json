@@ -1,0 +1,30 @@
+{
+  "algo": "reinforce",
+  "run": "batch_large",
+  "config": {
+    "lr": 0.001,
+    "gamma": 0.97,
+    "frames_per_batch": 6000,
+    "total_frames": 300000,
+    "entropy_coef": 0.01,
+    "baseline": true,
+    "normalize_returns": true,
+    "hidden": 128,
+    "layers": 2,
+    "max_grad_norm": 1.0,
+    "seed": 0
+  },
+  "train_time_s": 1577.4,
+  "eval_mean_return": -1.35375,
+  "eval_std_return": 6.8391646739569,
+  "eval_mean_len": 9.215,
+  "success_rate": 0.22,
+  "matched_referral_rate": 0.0,
+  "breach_rate": 0.0,
+  "dropout_rate": 0.78,
+  "risk_handled_rate": 0.9777777777777777,
+  "outcomes": {
+    "human_handoff": 44,
+    "dropout": 156
+  }
+}

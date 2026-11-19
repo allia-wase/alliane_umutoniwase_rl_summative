@@ -1,0 +1,19 @@
+C:\Users\hb\alliane_umutoniwase_rl_summative\.venv\Lib\site-packages\torchrl\collectors\_single.py:255: FutureWarning: The env passed to Collector is missing transforms required by the policy (InitTracker). From torchrl v0.16 the collector will append them automatically. To enable that behavior now (and silence this warning), pass `auto_register_policy_transforms=True`. To opt out permanently, pass `auto_register_policy_transforms=False`.
+  return super().__call__(*args, **kwargs)
+[92m2026-11-19 11:38:24,557 [torchrl][INFO][0m    Initialized LazyTensorStorage with torch.Size([2000]) shape[92m [END][0m
+[ppo:no_entropy] frames=2000 ep_return=-0.743 episodes=369 loss_policy=-0.017 loss_critic=1.310 entropy=2.291 clip_fraction=0.095 wall_s=8.500
+[ppo:no_entropy] frames=22000 ep_return=6.495 episodes=2841 loss_policy=-0.015 loss_critic=0.794 entropy=1.932 clip_fraction=0.093 wall_s=76.500
+[ppo:no_entropy] frames=42000 ep_return=11.870 episodes=4044 loss_policy=-0.013 loss_critic=0.330 entropy=1.618 clip_fraction=0.123 wall_s=137.100
+[ppo:no_entropy] frames=62000 ep_return=12.785 episodes=5420 loss_policy=-0.012 loss_critic=0.371 entropy=1.428 clip_fraction=0.081 wall_s=197.400
+[ppo:no_entropy] frames=82000 ep_return=13.477 episodes=6881 loss_policy=-0.009 loss_critic=0.207 entropy=1.283 clip_fraction=0.086 wall_s=258.900
+[ppo:no_entropy] frames=102000 ep_return=13.241 episodes=8423 loss_policy=-0.012 loss_critic=0.257 entropy=1.146 clip_fraction=0.088 wall_s=319.600
+[ppo:no_entropy] frames=122000 ep_return=12.772 episodes=10012 loss_policy=-0.010 loss_critic=0.306 entropy=1.052 clip_fraction=0.088 wall_s=379.600
+[ppo:no_entropy] frames=142000 ep_return=13.309 episodes=11629 loss_policy=-0.008 loss_critic=0.238 entropy=0.896 clip_fraction=0.085 wall_s=439.800
+[ppo:no_entropy] frames=162000 ep_return=13.478 episodes=13273 loss_policy=-0.004 loss_critic=0.226 entropy=0.846 clip_fraction=0.045 wall_s=500.100
+[ppo:no_entropy] frames=182000 ep_return=13.427 episodes=14902 loss_policy=-0.007 loss_critic=0.146 entropy=0.786 clip_fraction=0.059 wall_s=551.600
+[ppo:no_entropy] frames=202000 ep_return=13.892 episodes=16494 loss_policy=-0.004 loss_critic=0.154 entropy=0.728 clip_fraction=0.053 wall_s=597.700
+[ppo:no_entropy] frames=222000 ep_return=13.063 episodes=18176 loss_policy=-0.011 loss_critic=0.262 entropy=0.689 clip_fraction=0.133 wall_s=643.400
+[ppo:no_entropy] frames=242000 ep_return=13.724 episodes=19807 loss_policy=-0.005 loss_critic=0.199 entropy=0.632 clip_fraction=0.051 wall_s=690.100
+[ppo:no_entropy] frames=262000 ep_return=13.285 episodes=21486 loss_policy=-0.007 loss_critic=0.233 entropy=0.614 clip_fraction=0.069 wall_s=736.000
+[ppo:no_entropy] frames=282000 ep_return=14.133 episodes=23205 loss_policy=-0.005 loss_critic=0.146 entropy=0.619 clip_fraction=0.050 wall_s=782.200
+[ppo:no_entropy] EVAL return=13.53 success=0.99 breach=0.00

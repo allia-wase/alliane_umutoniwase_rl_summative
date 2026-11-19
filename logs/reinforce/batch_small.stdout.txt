@@ -1,0 +1,66 @@
+C:\Users\hb\alliane_umutoniwase_rl_summative\.venv\Lib\site-packages\torchrl\collectors\_single.py:255: FutureWarning: The env passed to Collector is missing transforms required by the policy (InitTracker). From torchrl v0.16 the collector will append them automatically. To enable that behavior now (and silence this warning), pass `auto_register_policy_transforms=True`. To opt out permanently, pass `auto_register_policy_transforms=False`.
+  return super().__call__(*args, **kwargs)
+C:\Users\hb\alliane_umutoniwase_rl_summative\training\pg_training.py:156: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\python_variable_methods.cpp:821.)
+  stats = dict(loss_policy=policy_loss.item(), loss_critic=float(critic_loss), entropy=entropy.item())
+[reinforce:batch_small] frames=500 ep_return=-1.996 episodes=99 loss_policy=-0.004 loss_critic=10.347 entropy=2.299 wall_s=2.800
+[reinforce:batch_small] frames=5500 ep_return=-0.386 episodes=1111 loss_policy=-0.052 loss_critic=4.547 entropy=2.242 wall_s=31.000
+[reinforce:batch_small] frames=10500 ep_return=-0.490 episodes=2427 loss_policy=-0.014 loss_critic=5.232 entropy=2.096 wall_s=59.900
+[reinforce:batch_small] frames=15500 ep_return=-0.386 episodes=4057 loss_policy=0.002 loss_critic=4.061 entropy=2.000 wall_s=90.300
+[reinforce:batch_small] frames=20500 ep_return=0.330 episodes=5227 loss_policy=-0.017 loss_critic=5.914 entropy=2.032 wall_s=118.800
+[reinforce:batch_small] frames=25500 ep_return=0.646 episodes=5828 loss_policy=-0.039 loss_critic=6.234 entropy=1.997 wall_s=145.900
+[reinforce:batch_small] frames=30500 ep_return=0.201 episodes=6371 loss_policy=-0.069 loss_critic=2.285 entropy=2.021 wall_s=173.000
+[reinforce:batch_small] frames=35500 ep_return=1.415 episodes=6950 loss_policy=-0.038 loss_critic=4.876 entropy=2.013 wall_s=200.100
+[reinforce:batch_small] frames=40500 ep_return=1.837 episodes=7582 loss_policy=-0.063 loss_critic=6.288 entropy=1.996 wall_s=227.300
+[reinforce:batch_small] frames=45500 ep_return=2.371 episodes=8220 loss_policy=-0.105 loss_critic=7.328 entropy=1.959 wall_s=254.500
+[reinforce:batch_small] frames=50500 ep_return=3.146 episodes=8781 loss_policy=-0.109 loss_critic=5.158 entropy=1.925 wall_s=281.600
+[reinforce:batch_small] frames=55500 ep_return=3.184 episodes=9329 loss_policy=-0.148 loss_critic=5.492 entropy=1.869 wall_s=308.100
+[reinforce:batch_small] frames=60500 ep_return=3.512 episodes=9862 loss_policy=-0.181 loss_critic=7.270 entropy=1.699 wall_s=335.000
+[reinforce:batch_small] frames=65500 ep_return=2.777 episodes=10428 loss_policy=-0.140 loss_critic=6.452 entropy=1.680 wall_s=362.000
+[reinforce:batch_small] frames=70500 ep_return=3.854 episodes=11122 loss_policy=-0.085 loss_critic=4.719 entropy=1.660 wall_s=389.600
+[reinforce:batch_small] frames=75500 ep_return=4.107 episodes=11862 loss_policy=-0.149 loss_critic=5.787 entropy=1.588 wall_s=417.000
+[reinforce:batch_small] frames=80500 ep_return=2.843 episodes=12636 loss_policy=-0.117 loss_critic=5.111 entropy=1.611 wall_s=444.500
+[reinforce:batch_small] frames=85500 ep_return=3.516 episodes=13412 loss_policy=-0.006 loss_critic=3.576 entropy=1.599 wall_s=472.200
+[reinforce:batch_small] frames=90500 ep_return=4.895 episodes=14114 loss_policy=-0.072 loss_critic=4.709 entropy=1.539 wall_s=500.800
+[reinforce:batch_small] frames=95500 ep_return=3.518 episodes=14711 loss_policy=0.023 loss_critic=2.152 entropy=1.597 wall_s=528.400
+[reinforce:batch_small] frames=100500 ep_return=4.208 episodes=15246 loss_policy=0.052 loss_critic=2.529 entropy=1.550 wall_s=555.700
+[reinforce:batch_small] frames=105500 ep_return=4.678 episodes=15773 loss_policy=-0.049 loss_critic=3.374 entropy=1.429 wall_s=582.700
+[reinforce:batch_small] frames=110500 ep_return=3.841 episodes=16299 loss_policy=0.037 loss_critic=1.526 entropy=1.469 wall_s=609.500
+[reinforce:batch_small] frames=115500 ep_return=4.563 episodes=16791 loss_policy=-0.036 loss_critic=2.711 entropy=1.400 wall_s=636.800
+[reinforce:batch_small] frames=120500 ep_return=5.401 episodes=17322 loss_policy=-0.125 loss_critic=2.452 entropy=1.377 wall_s=663.900
+[reinforce:batch_small] frames=125500 ep_return=4.410 episodes=17787 loss_policy=0.013 loss_critic=3.055 entropy=1.359 wall_s=690.800
+[reinforce:batch_small] frames=130500 ep_return=3.900 episodes=18267 loss_policy=0.001 loss_critic=2.172 entropy=1.284 wall_s=717.600
+[reinforce:batch_small] frames=135500 ep_return=4.575 episodes=18745 loss_policy=0.015 loss_critic=1.915 entropy=1.299 wall_s=744.700
+[reinforce:batch_small] frames=140500 ep_return=4.716 episodes=19250 loss_policy=0.024 loss_critic=2.513 entropy=1.272 wall_s=771.800
+[reinforce:batch_small] frames=145500 ep_return=5.067 episodes=19747 loss_policy=-0.087 loss_critic=2.233 entropy=1.295 wall_s=799.000
+[reinforce:batch_small] frames=150500 ep_return=6.923 episodes=20204 loss_policy=-0.165 loss_critic=4.446 entropy=1.202 wall_s=825.500
+[reinforce:batch_small] frames=155500 ep_return=5.092 episodes=20666 loss_policy=-0.004 loss_critic=1.905 entropy=1.273 wall_s=852.600
+[reinforce:batch_small] frames=160500 ep_return=4.194 episodes=21158 loss_policy=-0.075 loss_critic=1.990 entropy=1.192 wall_s=879.400
+[reinforce:batch_small] frames=165500 ep_return=6.082 episodes=21641 loss_policy=-0.032 loss_critic=3.152 entropy=1.152 wall_s=906.400
+[reinforce:batch_small] frames=170500 ep_return=5.143 episodes=22111 loss_policy=-0.049 loss_critic=2.424 entropy=1.166 wall_s=933.100
+[reinforce:batch_small] frames=175500 ep_return=4.733 episodes=22583 loss_policy=-0.099 loss_critic=2.323 entropy=1.178 wall_s=959.500
+[reinforce:batch_small] frames=180500 ep_return=6.799 episodes=23087 loss_policy=-0.083 loss_critic=3.812 entropy=1.154 wall_s=985.400
+[reinforce:batch_small] frames=185500 ep_return=5.243 episodes=23557 loss_policy=-0.070 loss_critic=3.033 entropy=1.158 wall_s=1013.300
+[reinforce:batch_small] frames=190500 ep_return=6.443 episodes=24017 loss_policy=-0.079 loss_critic=3.360 entropy=1.100 wall_s=1042.700
+[reinforce:batch_small] frames=195500 ep_return=6.425 episodes=24512 loss_policy=-0.017 loss_critic=2.413 entropy=1.119 wall_s=1070.500
+[reinforce:batch_small] frames=200500 ep_return=4.732 episodes=25022 loss_policy=-0.042 loss_critic=2.975 entropy=1.178 wall_s=1099.500
+[reinforce:batch_small] frames=205500 ep_return=5.141 episodes=25524 loss_policy=-0.010 loss_critic=1.479 entropy=1.125 wall_s=1126.100
+[reinforce:batch_small] frames=210500 ep_return=5.589 episodes=25986 loss_policy=0.023 loss_critic=1.675 entropy=1.096 wall_s=1153.100
+[reinforce:batch_small] frames=215500 ep_return=5.436 episodes=26451 loss_policy=-0.020 loss_critic=1.521 entropy=1.128 wall_s=1179.600
+[reinforce:batch_small] frames=220500 ep_return=6.071 episodes=26970 loss_policy=-0.051 loss_critic=2.135 entropy=1.155 wall_s=1206.300
+[reinforce:batch_small] frames=225500 ep_return=5.220 episodes=27485 loss_policy=-0.039 loss_critic=3.822 entropy=1.101 wall_s=1232.800
+[reinforce:batch_small] frames=230500 ep_return=4.589 episodes=27983 loss_policy=-0.001 loss_critic=1.659 entropy=1.122 wall_s=1259.100
+[reinforce:batch_small] frames=235500 ep_return=5.093 episodes=28474 loss_policy=0.046 loss_critic=5.738 entropy=1.153 wall_s=1286.000
+[reinforce:batch_small] frames=240500 ep_return=6.329 episodes=28920 loss_policy=-0.031 loss_critic=4.933 entropy=1.198 wall_s=1312.300
+[reinforce:batch_small] frames=245500 ep_return=5.997 episodes=29329 loss_policy=-0.038 loss_critic=7.275 entropy=1.237 wall_s=1339.000
+[reinforce:batch_small] frames=250500 ep_return=9.804 episodes=29684 loss_policy=-0.106 loss_critic=12.171 entropy=1.268 wall_s=1365.700
+[reinforce:batch_small] frames=255500 ep_return=10.656 episodes=30032 loss_policy=-0.065 loss_critic=7.360 entropy=1.289 wall_s=1391.700
+[reinforce:batch_small] frames=260500 ep_return=11.786 episodes=30363 loss_policy=-0.086 loss_critic=10.042 entropy=1.304 wall_s=1414.100
+[reinforce:batch_small] frames=265500 ep_return=10.894 episodes=30685 loss_policy=-0.054 loss_critic=7.271 entropy=1.309 wall_s=1434.600
+[reinforce:batch_small] frames=270500 ep_return=10.240 episodes=31009 loss_policy=-0.015 loss_critic=7.640 entropy=1.294 wall_s=1453.200
+[reinforce:batch_small] frames=275500 ep_return=11.539 episodes=31348 loss_policy=-0.056 loss_critic=3.086 entropy=1.315 wall_s=1470.700
+[reinforce:batch_small] frames=280500 ep_return=11.031 episodes=31689 loss_policy=0.032 loss_critic=8.078 entropy=1.320 wall_s=1486.900
+[reinforce:batch_small] frames=285500 ep_return=10.552 episodes=32030 loss_policy=-0.034 loss_critic=7.602 entropy=1.274 wall_s=1502.000
+[reinforce:batch_small] frames=290500 ep_return=10.536 episodes=32384 loss_policy=-0.067 loss_critic=11.568 entropy=1.287 wall_s=1517.800
+[reinforce:batch_small] frames=295500 ep_return=11.484 episodes=32725 loss_policy=-0.030 loss_critic=5.597 entropy=1.276 wall_s=1535.900
+[reinforce:batch_small] EVAL return=13.03 success=0.91 breach=0.00

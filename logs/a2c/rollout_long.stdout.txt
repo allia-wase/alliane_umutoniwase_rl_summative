@@ -1,0 +1,33 @@
+C:\Users\hb\alliane_umutoniwase_rl_summative\.venv\Lib\site-packages\torchrl\collectors\_single.py:255: FutureWarning: The env passed to Collector is missing transforms required by the policy (InitTracker). From torchrl v0.16 the collector will append them automatically. To enable that behavior now (and silence this warning), pass `auto_register_policy_transforms=True`. To opt out permanently, pass `auto_register_policy_transforms=False`.
+  return super().__call__(*args, **kwargs)
+[a2c:rollout_long] frames=1000 ep_return=-2.449 episodes=203 loss_policy=-2.867 loss_critic=1.450 entropy=2.299 wall_s=3.500
+[a2c:rollout_long] frames=11000 ep_return=-1.886 episodes=2092 loss_policy=-2.820 loss_critic=1.013 entropy=2.272 wall_s=32.700
+[a2c:rollout_long] frames=21000 ep_return=0.075 episodes=4172 loss_policy=-1.461 loss_critic=0.710 entropy=2.213 wall_s=60.400
+[a2c:rollout_long] frames=31000 ep_return=0.504 episodes=6426 loss_policy=-1.023 loss_critic=0.683 entropy=2.161 wall_s=113.400
+[a2c:rollout_long] frames=41000 ep_return=0.020 episodes=7884 loss_policy=-0.731 loss_critic=0.470 entropy=2.102 wall_s=159.000
+[a2c:rollout_long] frames=51000 ep_return=-0.009 episodes=8872 loss_policy=-0.381 loss_critic=0.507 entropy=2.091 wall_s=194.600
+[a2c:rollout_long] frames=61000 ep_return=0.801 episodes=9724 loss_policy=-0.962 loss_critic=0.580 entropy=2.086 wall_s=224.500
+[a2c:rollout_long] frames=71000 ep_return=1.386 episodes=10576 loss_policy=0.078 loss_critic=0.502 entropy=2.072 wall_s=253.000
+[a2c:rollout_long] frames=81000 ep_return=3.070 episodes=11349 loss_policy=1.195 loss_critic=0.584 entropy=2.057 wall_s=281.700
+[a2c:rollout_long] frames=91000 ep_return=2.548 episodes=12125 loss_policy=0.747 loss_critic=0.629 entropy=1.987 wall_s=310.300
+[a2c:rollout_long] frames=101000 ep_return=2.902 episodes=12901 loss_policy=-0.242 loss_critic=0.641 entropy=1.953 wall_s=346.700
+[a2c:rollout_long] frames=111000 ep_return=3.656 episodes=13629 loss_policy=1.093 loss_critic=0.662 entropy=1.937 wall_s=382.600
+[a2c:rollout_long] frames=121000 ep_return=6.324 episodes=14315 loss_policy=1.913 loss_critic=0.992 entropy=1.882 wall_s=421.800
+[a2c:rollout_long] frames=131000 ep_return=7.482 episodes=14986 loss_policy=1.089 loss_critic=1.018 entropy=1.818 wall_s=456.700
+[a2c:rollout_long] frames=141000 ep_return=9.244 episodes=15623 loss_policy=-0.313 loss_critic=1.060 entropy=1.812 wall_s=489.300
+[a2c:rollout_long] frames=151000 ep_return=10.618 episodes=16231 loss_policy=-0.542 loss_critic=0.728 entropy=1.797 wall_s=518.100
+[a2c:rollout_long] frames=161000 ep_return=9.516 episodes=16837 loss_policy=-1.022 loss_critic=0.568 entropy=1.768 wall_s=543.300
+[a2c:rollout_long] frames=171000 ep_return=10.523 episodes=17392 loss_policy=-0.963 loss_critic=0.553 entropy=1.739 wall_s=568.600
+[a2c:rollout_long] frames=181000 ep_return=11.283 episodes=17968 loss_policy=-0.841 loss_critic=0.492 entropy=1.702 wall_s=594.100
+[a2c:rollout_long] frames=191000 ep_return=11.347 episodes=18559 loss_policy=-0.793 loss_critic=0.503 entropy=1.684 wall_s=620.600
+[a2c:rollout_long] frames=201000 ep_return=11.549 episodes=19157 loss_policy=-0.807 loss_critic=0.430 entropy=1.676 wall_s=646.000
+[a2c:rollout_long] frames=211000 ep_return=10.694 episodes=19766 loss_policy=-1.061 loss_critic=0.506 entropy=1.667 wall_s=671.200
+[a2c:rollout_long] frames=221000 ep_return=10.755 episodes=20398 loss_policy=-1.399 loss_critic=0.581 entropy=1.614 wall_s=696.400
+[a2c:rollout_long] frames=231000 ep_return=12.156 episodes=21031 loss_policy=-0.313 loss_critic=0.314 entropy=1.603 wall_s=721.700
+[a2c:rollout_long] frames=241000 ep_return=11.239 episodes=21658 loss_policy=-0.825 loss_critic=0.581 entropy=1.596 wall_s=747.200
+[a2c:rollout_long] frames=251000 ep_return=11.496 episodes=22322 loss_policy=-1.084 loss_critic=0.456 entropy=1.575 wall_s=772.600
+[a2c:rollout_long] frames=261000 ep_return=12.934 episodes=22913 loss_policy=-0.131 loss_critic=0.264 entropy=1.578 wall_s=797.400
+[a2c:rollout_long] frames=271000 ep_return=12.460 episodes=23544 loss_policy=-0.427 loss_critic=0.257 entropy=1.544 wall_s=823.800
+[a2c:rollout_long] frames=281000 ep_return=12.892 episodes=24206 loss_policy=-0.212 loss_critic=0.271 entropy=1.529 wall_s=849.300
+[a2c:rollout_long] frames=291000 ep_return=13.406 episodes=24839 loss_policy=-0.437 loss_critic=0.195 entropy=1.560 wall_s=875.300
+[a2c:rollout_long] EVAL return=13.08 success=0.98 breach=0.00

@@ -1,0 +1,35 @@
+{
+  "algo": "ppo",
+  "run": "epochs_many",
+  "config": {
+    "lr": 0.0003,
+    "gamma": 0.97,
+    "gae_lambda": 0.95,
+    "frames_per_batch": 2000,
+    "total_frames": 300000,
+    "epochs": 15,
+    "minibatch": 256,
+    "clip_eps": 0.2,
+    "entropy_coef": 0.01,
+    "critic_coef": 0.5,
+    "hidden": 128,
+    "layers": 2,
+    "max_grad_norm": 0.5,
+    "normalize_advantage": true,
+    "seed": 0
+  },
+  "train_time_s": 1139.5,
+  "eval_mean_return": 13.742750000000001,
+  "eval_std_return": 2.0230385407846287,
+  "eval_mean_len": 11.645,
+  "success_rate": 0.99,
+  "matched_referral_rate": 0.9,
+  "breach_rate": 0.0,
+  "dropout_rate": 0.01,
+  "risk_handled_rate": 0.4,
+  "outcomes": {
+    "human_handoff": 18,
+    "matched_referral": 180,
+    "dropout": 2
+  }
+}

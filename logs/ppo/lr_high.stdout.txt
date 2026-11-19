@@ -1,0 +1,19 @@
+C:\Users\hb\alliane_umutoniwase_rl_summative\.venv\Lib\site-packages\torchrl\collectors\_single.py:255: FutureWarning: The env passed to Collector is missing transforms required by the policy (InitTracker). From torchrl v0.16 the collector will append them automatically. To enable that behavior now (and silence this warning), pass `auto_register_policy_transforms=True`. To opt out permanently, pass `auto_register_policy_transforms=False`.
+  return super().__call__(*args, **kwargs)
+[92m2026-11-18 19:26:29,342 [torchrl][INFO][0m    Initialized LazyTensorStorage with torch.Size([2000]) shape[92m [END][0m
+[ppo:lr_high] frames=2000 ep_return=-0.743 episodes=369 loss_policy=-0.026 loss_critic=1.290 entropy=2.288 clip_fraction=0.176 wall_s=7.100
+[ppo:lr_high] frames=22000 ep_return=10.385 episodes=2771 loss_policy=-0.021 loss_critic=0.704 entropy=1.755 clip_fraction=0.205 wall_s=70.800
+[ppo:lr_high] frames=42000 ep_return=13.319 episodes=4154 loss_policy=-0.014 loss_critic=0.146 entropy=1.275 clip_fraction=0.168 wall_s=135.200
+[ppo:lr_high] frames=62000 ep_return=13.585 episodes=5759 loss_policy=-0.010 loss_critic=0.151 entropy=0.984 clip_fraction=0.147 wall_s=188.400
+[ppo:lr_high] frames=82000 ep_return=13.284 episodes=7433 loss_policy=-0.007 loss_critic=0.208 entropy=0.818 clip_fraction=0.149 wall_s=252.600
+[ppo:lr_high] frames=102000 ep_return=12.874 episodes=9182 loss_policy=-0.008 loss_critic=0.162 entropy=0.675 clip_fraction=0.134 wall_s=326.400
+[ppo:lr_high] frames=122000 ep_return=12.752 episodes=10888 loss_policy=-0.006 loss_critic=0.244 entropy=0.662 clip_fraction=0.111 wall_s=401.300
+[ppo:lr_high] frames=142000 ep_return=12.468 episodes=12616 loss_policy=-0.005 loss_critic=0.226 entropy=0.655 clip_fraction=0.084 wall_s=461.900
+[ppo:lr_high] frames=162000 ep_return=13.469 episodes=14338 loss_policy=-0.001 loss_critic=0.255 entropy=0.527 clip_fraction=0.124 wall_s=522.900
+[ppo:lr_high] frames=182000 ep_return=13.601 episodes=16053 loss_policy=0.002 loss_critic=0.196 entropy=0.567 clip_fraction=0.096 wall_s=575.900
+[ppo:lr_high] frames=202000 ep_return=13.173 episodes=17771 loss_policy=-0.004 loss_critic=0.145 entropy=0.515 clip_fraction=0.104 wall_s=638.700
+[ppo:lr_high] frames=222000 ep_return=13.073 episodes=19491 loss_policy=-0.004 loss_critic=0.282 entropy=0.527 clip_fraction=0.132 wall_s=704.800
+[ppo:lr_high] frames=242000 ep_return=12.882 episodes=21254 loss_policy=-0.005 loss_critic=0.127 entropy=0.492 clip_fraction=0.111 wall_s=764.600
+[ppo:lr_high] frames=262000 ep_return=13.388 episodes=22973 loss_policy=-0.004 loss_critic=0.138 entropy=0.500 clip_fraction=0.078 wall_s=812.700
+[ppo:lr_high] frames=282000 ep_return=13.570 episodes=24716 loss_policy=-0.010 loss_critic=0.216 entropy=0.506 clip_fraction=0.142 wall_s=856.200
+[ppo:lr_high] EVAL return=13.50 success=0.98 breach=0.00

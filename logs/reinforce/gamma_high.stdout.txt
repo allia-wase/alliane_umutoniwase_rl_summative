@@ -1,0 +1,21 @@
+C:\Users\hb\alliane_umutoniwase_rl_summative\.venv\Lib\site-packages\torchrl\collectors\_single.py:255: FutureWarning: The env passed to Collector is missing transforms required by the policy (InitTracker). From torchrl v0.16 the collector will append them automatically. To enable that behavior now (and silence this warning), pass `auto_register_policy_transforms=True`. To opt out permanently, pass `auto_register_policy_transforms=False`.
+  return super().__call__(*args, **kwargs)
+C:\Users\hb\alliane_umutoniwase_rl_summative\training\pg_training.py:156: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\torch\csrc\autograd\generated\python_variable_methods.cpp:821.)
+  stats = dict(loss_policy=policy_loss.item(), loss_critic=float(critic_loss), entropy=entropy.item())
+[reinforce:gamma_high] frames=2000 ep_return=-0.743 episodes=369 loss_policy=-0.001 loss_critic=13.607 entropy=2.299 wall_s=7.800
+[reinforce:gamma_high] frames=22000 ep_return=-0.217 episodes=3998 loss_policy=-0.034 loss_critic=7.710 entropy=2.249 wall_s=119.500
+[reinforce:gamma_high] frames=42000 ep_return=-0.231 episodes=8078 loss_policy=-0.028 loss_critic=5.089 entropy=2.148 wall_s=233.100
+[reinforce:gamma_high] frames=62000 ep_return=0.698 episodes=10760 loss_policy=-0.013 loss_critic=5.490 entropy=2.056 wall_s=342.200
+[reinforce:gamma_high] frames=82000 ep_return=-0.407 episodes=12537 loss_policy=-0.017 loss_critic=7.794 entropy=2.065 wall_s=449.000
+[reinforce:gamma_high] frames=102000 ep_return=1.585 episodes=13988 loss_policy=-0.064 loss_critic=12.516 entropy=2.091 wall_s=556.900
+[reinforce:gamma_high] frames=122000 ep_return=3.253 episodes=15328 loss_policy=-0.065 loss_critic=15.719 entropy=2.074 wall_s=663.300
+[reinforce:gamma_high] frames=142000 ep_return=6.422 episodes=16587 loss_policy=-0.063 loss_critic=13.303 entropy=2.033 wall_s=769.200
+[reinforce:gamma_high] frames=162000 ep_return=6.148 episodes=17713 loss_policy=-0.085 loss_critic=14.476 entropy=1.988 wall_s=874.900
+[reinforce:gamma_high] frames=182000 ep_return=8.796 episodes=18667 loss_policy=-0.021 loss_critic=10.610 entropy=1.862 wall_s=978.300
+[reinforce:gamma_high] frames=202000 ep_return=9.785 episodes=19604 loss_policy=-0.054 loss_critic=13.512 entropy=1.863 wall_s=1089.400
+[reinforce:gamma_high] frames=222000 ep_return=9.552 episodes=20563 loss_policy=-0.035 loss_critic=9.709 entropy=1.846 wall_s=1194.600
+[reinforce:gamma_high] frames=242000 ep_return=9.467 episodes=21515 loss_policy=-0.054 loss_critic=14.103 entropy=1.834 wall_s=1298.500
+[reinforce:gamma_high] frames=262000 ep_return=9.659 episodes=22457 loss_policy=-0.063 loss_critic=12.321 entropy=1.781 wall_s=1402.800
+[reinforce:gamma_high] frames=282000 ep_return=11.642 episodes=23344 loss_policy=-0.023 loss_critic=2.770 entropy=1.733 wall_s=1480.400
+[reinforce:gamma_high] EVAL return=-1.29 success=0.01 breach=0.00
