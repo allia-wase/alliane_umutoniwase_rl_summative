@@ -4,7 +4,6 @@
 """
 from __future__ import annotations
 
-import numpy as np
 import torch
 
 from environment.custom_env import N_ACTIONS, OBS_SPEC
@@ -81,4 +80,3 @@ if __name__ == "__main__":
         for name, r in reference_scores(env_kwargs={"reward_version": v}).items():
             print(f"reward v{v} {name:9s} return={r['eval_mean_return']:6.2f} success={r['success_rate']:.2f} "
                   f"risk_handled={r['risk_handled_rate']:.2f} {r['outcomes']}")
-    _ = np  # keep import for callers

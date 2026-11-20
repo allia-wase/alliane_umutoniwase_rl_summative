@@ -1,7 +1,7 @@
 """DQN on SafePath with TorchRL (QValueActor, DQNLoss, replay buffer, target net).
 
     uv run python -m training.dqn_training --run baseline
-    uv run python -m training.dqn_training --sweep        # all 10+ configs
+    uv run python -m training.dqn_training --sweep        # every config in SWEEP
 """
 from __future__ import annotations
 
@@ -16,13 +16,14 @@ from torchrl.objectives import DQNLoss, HardUpdate, SoftUpdate
 
 from training.common import RunLogger, evaluate, make_env, mlp, save_model
 
+# Baseline config. Each SWEEP entry below changes only the values it lists.
 BASE = dict(lr=5e-4, gamma=0.97, batch_size=128, buffer_size=50_000, eps_start=1.0,
             eps_end=0.05, eps_frac=0.3, target_update=500, tau=None, double_dqn=True,
             hidden=128, layers=2, frames_per_batch=200, updates_per_batch=10,
             total_frames=300_000, prioritized=False, init_random_frames=2_000, seed=0)
 
-# 12 configs: shared controls (lr, gamma, batch, network) + DQN-specific
-# (exploration schedule, replay size/prioritisation, target update style, double DQN)
+# The sweep varies shared controls (lr, gamma, batch size, network size) and DQN-specific ones
+# (exploration schedule, replay size and prioritisation, target network updates, double DQN).
 SWEEP = {
     "baseline":        {},
     "lr_high":         dict(lr=2e-3),
@@ -69,11 +70,14 @@ def train(run_name: str, overrides: dict) -> dict:
     if cfg["tau"]:
         updater = SoftUpdate(loss, tau=cfg["tau"])
     else:
+        # HardUpdate counts gradient steps, so 500 // 10 updates per batch = a copy every 50 steps
         updater = HardUpdate(loss, value_network_update_interval=cfg["target_update"] // cfg["updates_per_batch"])
     opt = torch.optim.Adam(loss.parameters(), lr=cfg["lr"])
 
     log = RunLogger("dqn", run_name, cfg)
     frames, ep_returns = 0, []
+    # Each batch is 200 new frames from the epsilon-greedy policy. After the random warm-up,
+    # every batch is followed by a few gradient steps on samples from the replay buffer.
     for batch in collector:
         frames += batch.numel()
         egreedy.step(batch.numel())
@@ -92,6 +96,7 @@ def train(run_name: str, overrides: dict) -> dict:
             opt.step()
             updater.step()
             if cfg["prioritized"]:
+                # the loss wrote each sample's TD error into `sample`; it becomes the new priority
                 rb.update_tensordict_priority(sample)
             losses.append(ld["loss"].item())
         recent = ep_returns[-50:]

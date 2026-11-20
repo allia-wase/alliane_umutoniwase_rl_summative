@@ -82,6 +82,7 @@ def evaluate(net: nn.Module, n_episodes: int = 200, seed: int = 10_000, greedy: 
 
 
 def _bucket(outcome: str) -> str:
+    """Turn the environment's outcome message into a short category name."""
     if outcome.startswith("Connected to a generic"):
         return "generic_referral"
     if outcome.startswith("Connected"):
@@ -99,6 +100,8 @@ def _bucket(outcome: str) -> str:
 
 # ------------------------------------------------------------------- logging --
 class RunLogger:
+    """Collects one row per update for the run's CSV and prints a progress line every 10 updates."""
+
     def __init__(self, algo: str, run_name: str, config: dict):
         self.dir = LOG_DIR / algo
         self.dir.mkdir(parents=True, exist_ok=True)

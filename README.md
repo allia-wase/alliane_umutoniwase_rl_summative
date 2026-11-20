@@ -1,14 +1,14 @@
-# SafePath RL — support navigation for SGBV survivors
+# SafePath RL: support navigation for SGBV survivors
 
-Reinforcement-learning summative by **Alliane Umutoniwase**. It compares one value-based method (DQN)
-with three policy-gradient methods (REINFORCE, A2C, PPO), all built with **TorchRL** and trained
+Reinforcement learning summative by Alliane Umutoniwase. It compares one value-based method (DQN)
+with three policy-gradient methods (REINFORCE, A2C, PPO), all built with TorchRL and trained
 on the same custom Gymnasium environment.
 
-The environment comes from my capstone, **SafePath**, a private digital pathway to mental-health
+The environment comes from my capstone, SafePath, a private digital pathway to mental-health
 and professional support for women and girls affected by sexual and gender-based violence.
 SafePath's principle is *"technology should not make decisions for survivors, but give them the
 information, confidence and freedom to decide"*. That principle is built into the environment.
-The agent can only **offer** (listen, explain, ask, protect privacy, request consent, refer).
+The agent can only offer (listen, explain, ask, protect privacy, request consent, refer).
 A simulated survivor with a hidden internal state decides whether to accept.
 
 ![environment](assets/environment_render.png)
@@ -35,15 +35,17 @@ uv run pytest -q                                                # environment te
 
 ## The environment (`environment/custom_env.py`)
 
-**Episode:** one support session with one survivor, at most 40 agent turns.
+One episode is one support session with one survivor, at most 40 agent turns.
 
-**Start state.** Each episode samples a hidden survivor profile:
+### Start state
+
+Each episode samples a hidden survivor profile:
 - distress U(0.35, 0.95), trust U(0.10, 0.45) and readiness U(0.10, 0.50)
 - immediate danger with probability 0.25
 - a phone shared with others with probability 0.40
 - a preferred service from counselling, legal aid, medical care or safe shelter
 
-**Actions (10, discrete).**
+### Actions (10, discrete)
 
 | # | Action | Real-world equivalent in SafePath |
 |---|---|---|
@@ -58,7 +60,9 @@ uv run pytest -q                                                # environment te
 | 8 | ESCALATE_HUMAN | live hand-off to a trained human counsellor |
 | 9 | SAVE_AND_CLOSE | save resources discreetly and end the session |
 
-**Observation (16 values in [0, 1]).** These are noisy signals the app can actually collect:
+### Observation (16 values in [0, 1])
+
+These are noisy signals the app can actually collect:
 - mood check-ins
 - engagement (reply length and latency)
 - explicit answers (consent, safety screen, preference)
@@ -68,7 +72,7 @@ uv run pytest -q                                                # environment te
 
 The full mapping is in `OBS_SPEC` and in the report.
 
-**Rewards.**
+### Rewards
 
 | Event | Reward |
 |---|---|
@@ -84,7 +88,9 @@ The full mapping is in `OBS_SPEC` and in the report.
 | Closing the session on someone in danger | −6 |
 | Time cost | −0.05 per step |
 
-**Terminal conditions:**
+### Terminal conditions
+
+An episode ends on:
 - a successful referral
 - a human hand-off
 - save-and-close
@@ -103,19 +109,21 @@ The full mapping is in `OBS_SPEC` and in the report.
 | DQN | prioritized | 13.37 | 98% | 91% |
 | A2C | rollout_long | 13.08 | 98% | 100% |
 | REINFORCE | batch_small | 13.03 | 91% | 100% |
-| hand-written script | — | 11.55 | 93% | 93% |
-| random agent | — | −1.54 | 12% | 56% |
+| hand-written script | n/a | 11.55 | 93% | 93% |
+| random agent | n/a | −1.54 | 12% | 56% |
 
 ![training curves](assets/figures/fig1_comparative_rewards.png)
 
-**Reward hacking.** The highest-return runs of A2C (13.85), PPO (13.74) and DQN with γ = 0.995 (12.85)
+### Reward hacking
+
+The highest-return runs of A2C (13.85), PPO (13.74) and DQN with γ = 0.995 (12.85)
 handed 0%, 40% and 0% of at-risk survivors to a human. Under the original reward, referring an at-risk
 survivor still paid +10, and the "known risk" penalty only started after a safety screen, so the cheapest
-policy was not to ask. Two responses:
+policy was not to ask. I responded in two ways:
 
-- **Safety rule.** "Best" means the highest return among runs that hand at least 90% of at-risk survivors to
+- A safety rule: "best" means the highest return among runs that hand at least 90% of at-risk survivors to
   a human. `training/analyze.py` and `main.py` both use it.
-- **Reward v2.** `SafePathEnv(reward_version=2)` adds −8 for ending a session on an at-risk survivor
+- A second reward version: `SafePathEnv(reward_version=2)` adds −8 for ending a session on an at-risk survivor
   without a hand-off. Re-training the same configurations raised risk handling to 98% for A2C, 100% for PPO
   and 80% for DQN (`assets/figures/fig6_reward_v1_vs_v2.png`).
 
@@ -128,7 +136,7 @@ generalisation tests (new sessions, noisier signals, more survivors at risk, mor
 ```
 environment/   custom_env.py (Gymnasium env), rendering.py (pygame + PyOpenGL visualisation)
 training/      common.py, dqn_training.py, pg_training.py, run_sweeps.py, analyze.py, baselines.py
-models/        dqn/ and pg/ — state_dict .pt + JSON metadata for every run
+models/        dqn/ and pg/: state_dict .pt + JSON metadata for every run
 logs/          per-run training CSVs and evaluation summaries
 assets/        figures, tables, environment screenshot
 tests/         pytest checks of the environment

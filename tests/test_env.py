@@ -1,4 +1,4 @@
-import numpy as np
+"""Quick checks that SafePathEnv follows the Gymnasium API and behaves as designed."""
 from gymnasium.utils.env_checker import check_env
 
 from environment.custom_env import SafePathEnv, N_ACTIONS, OBS_DIM

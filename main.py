@@ -1,6 +1,6 @@
-"""SafePath — run the best trained agent in the OpenGL simulation.
+"""SafePath: run the best trained agent in the OpenGL simulation.
 
-    uv run main.py                          # best model overall, 5 episodes, GUI
+    uv run main.py                          # best safe model, 5 episodes, GUI
     uv run main.py --model models/pg/ppo_baseline.pt --episodes 3
     uv run main.py --random                 # untrained random agent for comparison
     uv run main.py --no-render              # terminal only

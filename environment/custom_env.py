@@ -13,7 +13,7 @@ distressed user, privacy breaches and drop-out.
 Hidden state  (true, never observed directly)
     distress, trust, readiness, risk (immediate danger), shared_device,
     preference (counselling / legal / medical / shelter)
-Observation   (16 floats, see OBS_SPEC) — noisy session signals the real app
+Observation   16 floats (see OBS_SPEC): noisy session signals the real app
     would compute from check-ins, engagement and explicit answers.
 """
 from __future__ import annotations

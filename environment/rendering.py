@@ -85,6 +85,7 @@ class SafePathRenderer:
         glEnd()
 
     def text(self, s, x, y, font=None, color=(235, 235, 245)):
+        # pygame renders the text to an image, then the pixels are copied into the OpenGL frame
         surf = (font or self.font).render(s, True, color)
         data = pygame.image.tostring(surf, "RGBA", True)
         glRasterPos2f(x, y + surf.get_height())

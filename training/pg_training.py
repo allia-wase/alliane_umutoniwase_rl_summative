@@ -167,6 +167,7 @@ def train(algo: str, run_name: str, overrides: dict) -> dict:
             stats = dict(loss_policy=policy_loss.item(), loss_critic=float(critic_loss), entropy=entropy.item())
 
         elif algo == "a2c":
+            # A2C: one update per short rollout, with GAE advantages from the critic
             with torch.no_grad():
                 adv(batch)
             if cfg["normalize_advantage"]:
@@ -181,7 +182,9 @@ def train(algo: str, run_name: str, overrides: dict) -> dict:
             stats = dict(loss_policy=ld["loss_objective"].item(), loss_critic=ld["loss_critic"].item(),
                          entropy=_entropy(ld, actor, batch))
 
-        else:  # ppo
+        else:
+            # PPO: recompute GAE each epoch, then several passes of shuffled mini-batches
+            # through the clipped loss, all on the same rollout
             acc = {"loss_policy": 0.0, "loss_critic": 0.0, "entropy": 0.0, "clip_fraction": 0.0}
             n = 0
             for _ in range(cfg["epochs"]):
@@ -205,7 +208,7 @@ def train(algo: str, run_name: str, overrides: dict) -> dict:
                     n += 1
             stats = {k: v / n for k, v in acc.items()}
 
-        collector.update_policy_weights_()
+        collector.update_policy_weights_()  # the collector must act with the updated policy
         recent = ep_returns[-50:]
         log.log(frames=frames, ep_return=sum(recent) / max(1, len(recent)), episodes=len(ep_returns), **stats)
     collector.shutdown()
