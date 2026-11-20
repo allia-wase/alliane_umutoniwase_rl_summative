@@ -94,13 +94,40 @@ The full mapping is in `OBS_SPEC` and in the report.
 
 ## Results
 
-The full tables and analysis are in `assets/results_tables.md`, and the figures are in `assets/figures/`.
+47 configurations (DQN 13, REINFORCE 11, A2C 11, PPO 12), all with the same environment, seed and
+300k-frame budget. Each policy is evaluated greedily on 200 unseen sessions.
+
+| Algorithm | Selected run | Mean return | Success | At-risk survivors handed to a human |
+|---|---|---|---|---|
+| PPO | clip_tight | **13.51** | 99% | 100% |
+| DQN | prioritized | 13.37 | 98% | 91% |
+| A2C | rollout_long | 13.08 | 98% | 100% |
+| REINFORCE | batch_small | 13.03 | 91% | 100% |
+| hand-written script | — | 11.55 | 93% | 93% |
+| random agent | — | −1.54 | 12% | 56% |
+
+![training curves](assets/figures/fig1_comparative_rewards.png)
+
+**Reward hacking.** The highest-return runs of A2C (13.85), PPO (13.74) and DQN with γ = 0.995 (12.85)
+handed 0%, 40% and 0% of at-risk survivors to a human. Under the original reward, referring an at-risk
+survivor still paid +10, and the "known risk" penalty only started after a safety screen, so the cheapest
+policy was not to ask. Two responses:
+
+- **Safety rule.** "Best" means the highest return among runs that hand at least 90% of at-risk survivors to
+  a human. `training/analyze.py` and `main.py` both use it.
+- **Reward v2.** `SafePathEnv(reward_version=2)` adds −8 for ending a session on an at-risk survivor
+  without a hand-off. Re-training the same configurations raised risk handling to 98% for A2C, 100% for PPO
+  and 80% for DQN (`assets/figures/fig6_reward_v1_vs_v2.png`).
+
+The full tables are in `assets/results_tables.md`, the figures are in `assets/figures/`, and the
+generalisation tests (new sessions, noisier signals, more survivors at risk, more shared phones) are in
+`assets/generalization.csv`.
 
 ## Repository layout
 
 ```
 environment/   custom_env.py (Gymnasium env), rendering.py (pygame + PyOpenGL visualisation)
-training/      common.py, dqn_training.py, pg_training.py, run_sweeps.py, analyze.py
+training/      common.py, dqn_training.py, pg_training.py, run_sweeps.py, analyze.py, baselines.py
 models/        dqn/ and pg/ — state_dict .pt + JSON metadata for every run
 logs/          per-run training CSVs and evaluation summaries
 assets/        figures, tables, environment screenshot
