@@ -41,3 +41,8 @@ done: 15 ok, 1 failed
 OK  a2c/no_entropy: [a2c:no_entropy] EVAL return=12.57 success=0.94 breach=0.00
 done: 1 ok, 0 failed
 4 runs to do with 3 workers
+OK  reinforce/batch_small_v2: [reinforce:batch_small_v2] EVAL return=13.50 success=0.99 breach=0.00
+OK  a2c/lambda_mc_v2: [a2c:lambda_mc_v2] EVAL return=11.95 success=0.92 breach=0.00
+OK  dqn/gamma_high_v2: [dqn:gamma_high_v2] EVAL return=9.25 success=0.77 breach=0.09
+OK  ppo/epochs_many_v2: [ppo:epochs_many_v2] EVAL return=13.67 success=0.99 breach=0.01
+done: 4 ok, 0 failed
