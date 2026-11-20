@@ -1,0 +1,14 @@
+{
+  "safe": {
+    "dqn": "prioritized",
+    "reinforce": "batch_small",
+    "a2c": "rollout_long",
+    "ppo": "clip_tight"
+  },
+  "top_return": {
+    "dqn": "prioritized",
+    "reinforce": "batch_small",
+    "a2c": "lambda_mc",
+    "ppo": "epochs_many"
+  }
+}

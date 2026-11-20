@@ -106,15 +106,14 @@ def fig_comparative(best, curves, refs):
         df = curves[(algo, best[algo]["run"])]
         y = smooth(df["ep_return"], 15)
         ax.plot(df["frames"], y, color=COLOR[algo], label=f"{LABEL[algo]} ({best[algo]['run']})")
-        label_end(ax, df["frames"].iloc[-1], y[-1], LABEL[algo], COLOR[algo])
     sc, rnd = refs["scripted"]["eval_mean_return"], refs["random"]["eval_mean_return"]
     ax.axhline(sc, color=INK2, lw=1, ls="--")
-    ax.text(ax.get_xlim()[0], sc - 0.9, f" hand-written script, evaluated ({sc:.1f})", color=INK2, fontsize=8)
+    ax.text(150_000, sc - 0.9, f"hand-written script, evaluated ({sc:.1f})", color=INK2, fontsize=8, ha="center")
     ax.axhline(rnd, color=INK2, lw=1, ls=":")
-    ax.text(ax.get_xlim()[0], rnd + 0.3, f" random agent, evaluated ({rnd:.1f})", color=INK2, fontsize=8)
+    ax.text(150_000, rnd + 0.3, f"random agent, evaluated ({rnd:.1f})", color=INK2, fontsize=8, ha="center")
     ax.set(xlabel="Environment steps (frames)", ylabel="Mean episode return (last 50 episodes)",
            title="Fig. 1  Training return of the best configuration of each algorithm")
-    ax.legend(loc="lower right", fontsize=8)
+    ax.legend(loc="center right", fontsize=8)
     fig.tight_layout()
     fig.savefig(FIG / "fig1_comparative_rewards.png", dpi=160)
     plt.close(fig)
@@ -215,7 +214,8 @@ def generalization(best):
     for i, algo in enumerate([a for a in ALGOS if a in best]):
         vals = [df[(df.algo == algo) & (df.setting == st)]["eval_mean_return"].item() for st in settings]
         ax.bar(x + (i - 1.5) * w, vals, w * 0.9, color=COLOR[algo], label=LABEL[algo])
-    ax.set_xticks(x, [s.replace(" (", "\n(") for s in settings], fontsize=8)
+    ax.set_xticks(x, ["unseen\nsessions", "noisier signals\nσ = 0.15", "high-risk\n50% at risk",
+                      "shared phones\n80% shared"], fontsize=8)
     ax.set(ylabel="mean return (500 episodes)", title="Return under distribution shift")
     ax.legend(fontsize=8, ncols=4, loc="upper center", bbox_to_anchor=(0.5, -0.18))
 
@@ -272,16 +272,19 @@ def fig_reward_v2(summaries, v2):
         for j, ver in enumerate(["v1", "v2"]):
             vals = [df[(df.algo == a) & (df.run == r) & (df.reward == ver)][col].item() for a, r in pairs]
             cols = ["#b9b8b2" if ver == "v1" else COLOR[a] for a, _ in pairs]
-            bars = ax.bar(x + (j - 0.5) * 0.38, vals, 0.36, color=cols,
-                          label="reward v1 (grey)" if ver == "v1" else "reward v2: missed danger −8 (colour)")
+            bars = ax.bar(x + (j - 0.5) * 0.38, vals, 0.36, color=cols)
             for b, v in zip(bars, vals):
                 ax.text(b.get_x() + b.get_width() / 2, v + 0.02, f"{v:.0%}", ha="center", fontsize=8)
         ax.set_xticks(x, [f"{LABEL[a]}\n{r}" for a, r in pairs], fontsize=8)
         ax.set_ylim(0, 1.18)
         ax.set_title(title)
-    axes[0].legend(fontsize=7.5, loc="upper left")
+    from matplotlib.patches import Patch
+    fig.legend(handles=[Patch(color="#b9b8b2", label="reward v1 (sweep)"),
+                        Patch(color=INK2, label="reward v2: −8 for ending on an at-risk survivor without a hand-off "
+                                                "(coloured bars)")],
+               loc="lower center", ncols=2, fontsize=8)
     fig.suptitle("Fig. 6  Same hyperparameters, reward v1 vs v2", fontweight="bold", fontsize=11)
-    fig.tight_layout()
+    fig.tight_layout(rect=(0, 0.08, 1, 1))
     fig.savefig(FIG / "fig6_reward_v1_vs_v2.png", dpi=160)
     plt.close(fig)
     print(df.to_string(index=False))
