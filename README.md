@@ -24,6 +24,10 @@ uv run main.py --model models/pg/ppo_baseline.pt --episodes 3
 uv run main.py --web           # 3D web replay of the agents (Three.js) with a live dashboard
 ```
 
+The web view replays recorded sessions: every agent meets the same four survivors, so you can compare
+them side by side. It runs offline (the libraries are in `web/vendor/`). To re-record the sessions after
+retraining, run `uv run python -m training.export_replay`.
+
 Training and analysis:
 
 ```bash
