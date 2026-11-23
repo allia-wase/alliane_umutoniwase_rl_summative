@@ -21,6 +21,7 @@ uv run main.py                 # best trained agent, OpenGL window + step-by-ste
 uv run main.py --random        # untrained random agent, for comparison
 uv run main.py --no-render     # terminal only
 uv run main.py --model models/pg/ppo_baseline.pt --episodes 3
+uv run main.py --web           # 3D web replay of the agents (Three.js) with a live dashboard
 ```
 
 Training and analysis:
@@ -140,7 +141,8 @@ models/        dqn/ and pg/: state_dict .pt + JSON metadata for every run
 logs/          per-run training CSVs and evaluation summaries
 assets/        figures, tables, environment screenshot
 tests/         pytest checks of the environment
-main.py        entry point: runs the best agent in the GUI
+main.py        entry point: runs the best agent in the GUI, or the 3D web replay with --web
+web/           3D replay page (Three.js + Chart.js, vendored); replays/ written by training/export_replay.py
 ```
 
 ## Using a trained model outside TorchRL

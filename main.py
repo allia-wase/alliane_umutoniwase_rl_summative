@@ -4,6 +4,7 @@
     uv run main.py --model models/pg/ppo_baseline.pt --episodes 3
     uv run main.py --random                 # untrained random agent for comparison
     uv run main.py --no-render              # terminal only
+    uv run main.py --web                    # 3D web replay (Three.js) with a live dashboard
 """
 from __future__ import annotations
 
@@ -42,6 +43,29 @@ def best_model_path() -> Path:
     return best
 
 
+def serve_web(port: int):
+    """Record the agents' sessions if needed, then serve web/ locally and open it in the browser."""
+    import functools
+    import http.server
+    import subprocess
+    import sys
+    import webbrowser
+
+    web = ROOT / "web"
+    if not (web / "replays" / "index.json").exists():
+        print("Recording sessions for each agent...")
+        subprocess.run([sys.executable, "-m", "training.export_replay"], cwd=ROOT, check=True)
+    handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(web))
+    with http.server.ThreadingHTTPServer(("127.0.0.1", port), handler) as httpd:
+        url = f"http://127.0.0.1:{port}/index.html"
+        print(f"SafePath 3D replay at {url}  (Ctrl+C to stop)")
+        webbrowser.open(url)
+        try:
+            httpd.serve_forever()
+        except KeyboardInterrupt:
+            print("stopped")
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--model", type=str, default=None)
@@ -50,7 +74,11 @@ def main():
     p.add_argument("--delay", type=float, default=0.9, help="seconds between steps in the GUI")
     p.add_argument("--random", action="store_true")
     p.add_argument("--no-render", action="store_true")
+    p.add_argument("--web", action="store_true", help="open the 3D web replay instead of the OpenGL window")
+    p.add_argument("--port", type=int, default=8766)
     a = p.parse_args()
+    if a.web:
+        return serve_web(a.port)
 
     if a.random:
         net, meta = None, {"algo": "random", "run": "-"}
