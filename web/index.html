@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SafePath RL replay</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Ccircle cx=%278%27 cy=%278%27 r=%277%27 fill=%27%238c5cd9%27/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <div id="world">
+      <canvas id="scene"></canvas>
+      <div id="stepBanner"><span id="bannerStep">Step 0</span><span id="bannerRisk">RISK FLAGGED</span><span id="bannerPrivacy">discreet mode</span></div>
+      <div id="actionToast"></div>
+      <div id="outcomeCard"><div id="outcomeTitle"></div><div id="outcomeSub"></div></div>
+      <div id="legend">
+        <span><i class="dot" style="background:#7fb2ff"></i>calm</span>
+        <span><i class="dot" style="background:#ec5a6b"></i>distressed</span>
+        <span><i class="ring" style="border-color:#2fb7ad"></i>privacy shield</span>
+        <span><i class="ring" style="border-color:#ff4d5e"></i>risk flagged</span>
+        <span><i class="dot" style="background:#5a2230"></i>hidden danger (agent can't see it)</span>
+        <span><i class="dot" style="background:#30293d"></i>someone looking at her phone</span>
+        <span>drag to rotate, scroll to zoom</span>
+      </div>
+    </div>
+
+    <aside id="panel">
+      <header>
+        <div class="brand">SafePath</div>
+        <select id="agentSelect" aria-label="Agent"></select>
+      </header>
+      <div id="agentNote"></div>
+
+      <div id="sessionTabs"></div>
+
+      <div id="profile">
+        <div class="label">Hidden from the agent</div>
+        <div id="profileChips"></div>
+      </div>
+
+      <div id="actionNow">
+        <div class="label">Agent's offer</div>
+        <div id="actionName">-</div>
+        <div id="eventText"></div>
+      </div>
+
+      <div class="kpis">
+        <div class="kpi"><div class="v" id="kReturn">0</div><div class="k">session return</div></div>
+        <div class="kpi"><div class="v" id="kStep">0</div><div class="k">step</div></div>
+        <div class="kpi"><div class="v" id="kInfo">0/4</div><div class="k">options explained</div></div>
+      </div>
+      <div id="flags"></div>
+
+      <div class="chartBox"><canvas id="chartState"></canvas></div>
+      <div class="chartBox"><canvas id="chartReturn"></canvas></div>
+      <div class="chartBox small"><canvas id="chartRisk"></canvas></div>
+
+      <div class="label">Action at each step</div>
+      <div id="timeline"></div>
+      <div id="actionKey"></div>
+
+      <div id="controls">
+        <button id="playBtn" aria-label="Play">▶</button>
+        <input id="scrub" type="range" min="0" max="10" value="0" aria-label="Step">
+        <select id="speed" aria-label="Speed">
+          <option value="0.5">0.5x</option><option value="1" selected>1x</option>
+          <option value="2">2x</option><option value="4">4x</option>
+        </select>
+        <label class="auto"><input id="autoNext" type="checkbox" checked> next</label>
+      </div>
+    </aside>
+  </div>
+
+  <div id="intro">
+    <div class="card">
+      <div class="eyebrow">Reinforcement learning summative · Alliane Umutoniwase</div>
+      <h1>SafePath</h1>
+      <p class="lead">An RL agent is the support assistant inside SafePath, a private app for survivors of
+        gender-based violence. The agent offers; the survivor decides.</p>
+      <p>Each step it makes one offer: listen, explain an option, ask what she wants, check her safety,
+        turn on discreet mode, ground her, ask consent, refer her, or hand her to a human counsellor.
+        It never sees her real state, only noisy signals. It has to keep her safe and private and get
+        her to the support she chose.</p>
+      <button id="startBtn">Start a session</button>
+    </div>
+  </div>
+
+  <script src="vendor/three.min.js"></script>
+  <script src="vendor/OrbitControls.js"></script>
+  <script src="vendor/chart.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
