@@ -7,9 +7,9 @@ on the same custom Gymnasium environment.
 The environment comes from my capstone, SafePath, a private digital pathway to mental-health
 and professional support for women and girls affected by sexual and gender-based violence.
 SafePath's principle is *"technology should not make decisions for survivors, but give them the
-information, confidence and freedom to decide"*. That principle is built into the environment.
-The agent can only offer (listen, explain, ask, protect privacy, request consent, refer).
-A simulated survivor with a hidden internal state decides whether to accept.
+information, confidence and freedom to decide"*. The environment follows that rule:
+the agent can only offer (listen, explain, ask, protect privacy, request consent, refer).
+A simulated survivor, whose internal state the agent can't see, decides whether to accept.
 
 ![environment](assets/environment_render.png)
 
@@ -67,7 +67,7 @@ Each episode samples a hidden survivor profile:
 
 ### Observation (16 values in [0, 1])
 
-These are noisy signals the app can actually collect:
+These are noisy signals a real app could collect:
 - mood check-ins
 - engagement (reply length and latency)
 - explicit answers (consent, safety screen, preference)
@@ -122,9 +122,9 @@ An episode ends on:
 ### Reward hacking
 
 The highest-return runs of A2C (13.85), PPO (13.74) and DQN with γ = 0.995 (12.85)
-handed 0%, 40% and 0% of at-risk survivors to a human. Under the original reward, referring an at-risk
+handed only 0%, 40% and 0% of at-risk survivors to a human. Under the original reward, referring an at-risk
 survivor still paid +10, and the "known risk" penalty only started after a safety screen, so the cheapest
-policy was not to ask. I responded in two ways:
+policy was not to ask. I fixed this in two ways:
 
 - A safety rule: "best" means the highest return among runs that hand at least 90% of at-risk survivors to
   a human. `training/analyze.py` and `main.py` both use it.
@@ -139,14 +139,35 @@ generalisation tests (new sessions, noisier signals, more survivors at risk, mor
 ## Repository layout
 
 ```
-environment/   custom_env.py (Gymnasium env), rendering.py (pygame + PyOpenGL visualisation)
-training/      common.py, dqn_training.py, pg_training.py, run_sweeps.py, analyze.py, baselines.py
-models/        dqn/ and pg/: state_dict .pt + JSON metadata for every run
-logs/          per-run training CSVs and evaluation summaries
-assets/        figures, tables, environment screenshot
-tests/         pytest checks of the environment
-main.py        entry point: runs the best agent in the GUI, or the 3D web replay with --web
-web/           3D replay page (Three.js + Chart.js, vendored); replays/ written by training/export_replay.py
+alliane_umutoniwase_rl_summative/
+├── main.py                     # entry point: best agent in the OpenGL window, or the 3D web replay (--web)
+├── environment/
+│   ├── custom_env.py           # SafePathEnv, the Gymnasium environment
+│   └── rendering.py            # pygame + PyOpenGL visualisation
+├── training/
+│   ├── common.py               # env setup, evaluation, logging, saving and loading models
+│   ├── dqn_training.py         # DQN
+│   ├── pg_training.py          # REINFORCE, A2C and PPO
+│   ├── run_sweeps.py           # runs every configuration, resumable
+│   ├── analyze.py              # figures and tables, picks the best runs
+│   ├── baselines.py            # hand-written script and random agent
+│   └── export_replay.py        # records sessions for the web replay
+├── models/
+│   ├── dqn/                    # .pt state_dict + JSON metadata per run
+│   └── pg/
+├── logs/                       # training CSVs and evaluation summaries, one folder per algorithm
+├── assets/
+│   ├── figures/                # fig1 to fig6
+│   ├── results_tables.md
+│   ├── generalization.csv
+│   ├── reward_v1_vs_v2.csv
+│   └── selected_runs.json      # the best run of each algorithm
+├── web/
+│   ├── index.html, app.js, style.css   # 3D replay page
+│   ├── replays/                # recorded sessions (JSON)
+│   └── vendor/                 # Three.js, OrbitControls, Chart.js
+└── tests/
+    └── test_env.py             # pytest checks of the environment
 ```
 
 ## Using a trained model outside TorchRL
